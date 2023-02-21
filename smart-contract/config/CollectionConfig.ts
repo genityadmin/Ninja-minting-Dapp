@@ -12,7 +12,7 @@ const CollectionConfig: CollectionConfigInterface = {
   contractName: 'TheNinjaKingdomOfficial',
   tokenName: 'The Ninja',
   tokenSymbol: 'TNJK',
-  hiddenMetadataUri: 'QmVoQZAkppWrhYZ3FAnZSW14gn6DDAL73jL3gdWa9Mpx7j/hidden.json',
+  hiddenMetadataUri: 'ipfs://QmVoQZAkppWrhYZ3FAnZSW14gn6DDAL73jL3gdWa9Mpx7j/hidden.json',
   maxSupply: 6000,
   whitelistSale: {
     price: 0,
@@ -26,7 +26,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.065,
     maxMintAmountPerTx: 3,
   },
-  contractAddress: "0x85bB3b8D2597729DAC4a58c155FF0a5d83A0caA5",
+  contractAddress: "0x148E5A0463F169eDd8A4b8ab22b4f63f1dB32Cc4",
   marketplaceIdentifier: 'ninjakingdom-token',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,

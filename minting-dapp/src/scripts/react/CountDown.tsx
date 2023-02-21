@@ -6,7 +6,7 @@ const CountDown = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("17 February 2023 23:59 GMT+8");
+    const target = new Date("25 February 2023 10:00 GMT+8");
 
     const interval = setInterval(() => {
       const now = new Date();

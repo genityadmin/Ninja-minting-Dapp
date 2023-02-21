@@ -54,7 +54,7 @@ export default class CollectionStatus extends React.Component<Props, State> {
                 <h1 className='select'>SELECT THE NUMBER OF NINJAS TO MINT</h1>
                 <div className="supply">
                   <span className="label">REMAINING NINJAS: </span>
-                  <span style={{ color: "#E42222" }}>{Number(this.props.maxSupply.toString()) - Number(this.props.totalSupply.toString())}</span> / {this.props.maxSupply.toString()} SUPPLY
+                  <span style={{ color: "#E42222" }}>{Number(this.props.maxSupply.toString()) - Number(this.props.totalSupply.toString())}</span> / {Number(this.props.maxSupply.toString()) - 500} SUPPLY
                 </div>
               </>
             }
