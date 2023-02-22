@@ -83,8 +83,8 @@ export default class MintWidget extends React.Component<Props, State> {
                   <strong>PRICE:</strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} ETH
                 </div>
                 <div className="controls">
-                  <button tabIndex={1} className="mintOne" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
-                  <button tabIndex={2} className="mintTwo" disabled={this.props.loading} onClick={() => this.mint2()}>2</button>
+                  <button className="mintOne" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
+                  <button className="mintTwo" disabled={this.props.loading} onClick={() => this.mint2()}>2</button>
 
 
                   {/* <button ref='#target1' id='target1' className="mintOne-public" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
