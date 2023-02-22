@@ -190,67 +190,74 @@ export default class Dapp extends React.Component<Props, State> {
             <>
               {this.isContractReady() ?
                 <>
-                  {this.state.loading ?
+                  {!this.state.isPaused ?
                     <>
-                      {this.state.mintSuccess ?
+                      {this.state.loading ?
                         <>
-                          <div className="wallet-address">
-                            <span className="address">{this.state.userAddress?.toString().slice(0, 5)}...{this.state.userAddress?.toString().slice(-4)}</span>
-                          </div>
-                          <h1 className='txn-success'>TRANSACTION WAS SUCCESSFUL</h1>
-                          <h1 className='congratz-msg'>
-                            CONGRATULATIONS!
-                            <br />
-                            WELCOME TO THE NINJA KINGDOM!
-                          </h1>
-                          <a className='ethscan' href={this.state.tnxHashReceipts} target="_blank" rel="noopener">VIEW ETHERSCAN</a>
-                          <a className='jonin' href="https://discord.gg/theninjakingdom" target="_blank" rel="noopener"><div className='img-text'><img src='discord.png' style={{ maxWidth: "100%", maxHeight: "100%", paddingRight: "20px" }} />CLAIM YOUR JŌNIN ROLE</div></a>
+                          {this.state.mintSuccess ?
+                            <>
+                              <div className="wallet-address">
+                                <span className="address">{this.state.userAddress?.toString().slice(0, 5)}...{this.state.userAddress?.toString().slice(-4)}</span>
+                              </div>
+                              <h1 className='txn-success'>TRANSACTION WAS SUCCESSFUL</h1>
+                              <h1 className='congratz-msg'>
+                                CONGRATULATIONS!
+                                <br />
+                                WELCOME TO THE NINJA KINGDOM!
+                              </h1>
+                              <a className='ethscan' href={this.state.tnxHashReceipts} target="_blank" rel="noopener">VIEW ETHERSCAN</a>
+                              <a className='jonin' href="https://discord.gg/theninjakingdom" target="_blank" rel="noopener"><div className='img-text'><img src='discord.png' style={{ maxWidth: "100%", maxHeight: "100%", paddingRight: "20px" }} />CLAIM YOUR JŌNIN ROLE</div></a>
+                            </>
+                            :
+                            <>
+                              <div className="wallet-address">
+                                <span className="address">{this.state.userAddress?.toString().slice(0, 5)}...{this.state.userAddress?.toString().slice(-4)}</span>
+                              </div>
+                              <h1 className='select'>TRANSACTION IS PROCESSING...</h1>
+                              <h1 className='update-message'>UPDATING... DO NOT REFRESH THE BROWSER</h1>
+                              <a className='ethscan' href={this.state.tnxHashes} target="_blank" rel="noopener">VIEW ETHERSCAN</a>
+                            </>
+                          }
                         </>
                         :
                         <>
-                          <div className="wallet-address">
-                            <span className="address">{this.state.userAddress?.toString().slice(0, 5)}...{this.state.userAddress?.toString().slice(-4)}</span>
-                          </div>
-                          <h1 className='select'>TRANSACTION IS PROCESSING...</h1>
-                          <h1 className='update-message'>UPDATING... DO NOT REFRESH THE BROWSER</h1>
-                          <a className='ethscan' href={this.state.tnxHashes} target="_blank" rel="noopener">VIEW ETHERSCAN</a>
+                          <CollectionStatus
+                            userAddress={this.state.userAddress}
+                            maxSupply={this.state.maxSupply}
+                            totalSupply={this.state.totalSupply}
+                            isPaused={this.state.isPaused}
+                            isWhitelistMintEnabled={this.state.isWhitelistMintEnabled}
+                            isUserInWhitelist={this.state.isUserInWhitelist}
+                            isSoldOut={this.isSoldOut()}
+                            errorMessage={this.state.errorMessage}
+
+                          />
+                          {!this.isSoldOut() ?
+                            <MintWidget
+                              networkConfig={this.state.networkConfig}
+                              maxSupply={this.state.maxSupply}
+                              totalSupply={this.state.totalSupply}
+                              tokenPrice={this.state.tokenPrice}
+                              maxMintAmountPerTx={this.state.maxMintAmountPerTx}
+                              isPaused={this.state.isPaused}
+                              isWhitelistMintEnabled={this.state.isWhitelistMintEnabled}
+                              isUserInWhitelist={this.state.isUserInWhitelist}
+                              mintTokens={(mintAmount) => this.mintTokens(mintAmount)}
+                              whitelistMintTokens={(mintAmount) => this.whitelistMintTokens(mintAmount)}
+                              loading={this.state.loading}
+                            />
+                            :
+                            <div className="WL-fail">
+                              <h2 className='text'>The Ninja's have been <strong>sold out</strong>!</h2>
+                              <h3 className='text'>You can visit our collection in <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.</h3>
+                            </div>
+                          }
                         </>
                       }
                     </>
                     :
-                    <>
-                      <CollectionStatus
-                        userAddress={this.state.userAddress}
-                        maxSupply={this.state.maxSupply}
-                        totalSupply={this.state.totalSupply}
-                        isPaused={this.state.isPaused}
-                        isWhitelistMintEnabled={this.state.isWhitelistMintEnabled}
-                        isUserInWhitelist={this.state.isUserInWhitelist}
-                        isSoldOut={this.isSoldOut()}
-                        errorMessage={this.state.errorMessage}
-
-                      />
-                      {!this.isSoldOut() ?
-                        <MintWidget
-                          networkConfig={this.state.networkConfig}
-                          maxSupply={this.state.maxSupply}
-                          totalSupply={this.state.totalSupply}
-                          tokenPrice={this.state.tokenPrice}
-                          maxMintAmountPerTx={this.state.maxMintAmountPerTx}
-                          isPaused={this.state.isPaused}
-                          isWhitelistMintEnabled={this.state.isWhitelistMintEnabled}
-                          isUserInWhitelist={this.state.isUserInWhitelist}
-                          mintTokens={(mintAmount) => this.mintTokens(mintAmount)}
-                          whitelistMintTokens={(mintAmount) => this.whitelistMintTokens(mintAmount)}
-                          loading={this.state.loading}
-                        />
-                        :
-                        <div className="WL-fail">
-                          <h2 className='text'>The Ninja's have been <strong>sold out</strong>!</h2>
-                          <h3 className='text'>You can visit our collection in <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.</h3>
-                        </div>
-                      }
-                    </>
+                    // <h1 className='WL-fail'><strong className='text'>Oops! It seems like you are not on the Ninja List. Hope to see you at the Public Mint Soon!</strong></h1>
+                    null
                   }
                 </>
                 :

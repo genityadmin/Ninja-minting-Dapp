@@ -6,7 +6,7 @@ const CountDown = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("25 February 2023 10:00 GMT+8");
+    const target = new Date("25 February 2023 23:00 GMT+8");
 
     const interval = setInterval(() => {
       const now = new Date();
@@ -70,7 +70,7 @@ const CountDown = () => {
           </div>
         </div>
       </div>
-      <h1 className="live-soon">WHITELIST MINT IS LIVE SOON</h1>
+      <h1 className="live-soon">PUBLIC MINT IS LIVE SOON</h1>
     </div>
   )
 }

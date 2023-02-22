@@ -64,7 +64,7 @@ export default class CollectionStatus extends React.Component<Props, State> {
         }
         {this.isSaleOpen() ?
           <>
-            {this.props.isWhitelistMintEnabled && !this.props.isUserInWhitelist ? <h1 className='WL-fail'><strong className='text'>Oops! It seems like you are not on the Ninja List. Hope to see you at the General Mint Soon!</strong></h1> : null}
+            {this.props.isWhitelistMintEnabled && !this.props.isUserInWhitelist ? <h1 className='WL-fail'><strong className='text'>Oops! It seems like you are not on the Ninja List. Hope to see you at the Public Mint Soon!</strong></h1> : null}
           </>
           :
           null
