@@ -9,13 +9,13 @@ const CollectionConfig: CollectionConfigInterface = {
   // The contract name can be updated using the following command:
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
-  contractName: 'TheNinjaKingdomOfficial',
-  tokenName: 'The Ninja',
+  contractName: 'IrVins',
+  tokenName: 'Salted Egg Fish Skin',
   tokenSymbol: 'TNJK',
-  hiddenMetadataUri: 'ipfs://QmVoQZAkppWrhYZ3FAnZSW14gn6DDAL73jL3gdWa9Mpx7j/hidden.json',
+  hiddenMetadataUri: 'ipfs://QmTAMUsVyqGGPYtboVoQrP54fvkW9zqDDjFqRxBhCz26Q7/hidden.json',
   maxSupply: 6000,
   whitelistSale: {
-    price: 0.055,
+    price: 0.0001,
     maxMintAmountPerTx: 2,
   },
   preSale: {
@@ -23,10 +23,10 @@ const CollectionConfig: CollectionConfigInterface = {
     maxMintAmountPerTx: 3,
   },
   publicSale: {
-    price: 0.065,
+    price: 0.00011,
     maxMintAmountPerTx: 3,
   },
-  contractAddress: "0x148E5A0463F169eDd8A4b8ab22b4f63f1dB32Cc4",
+  contractAddress: "0xBe1E2250b7455Cd0A02066CA332850E8ffa730fb",
   marketplaceIdentifier: 'ninjakingdom-token',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,

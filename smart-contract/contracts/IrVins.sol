@@ -8,12 +8,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/common/ERC2981.sol";
 
-contract TheNinjaKingdomOfficial is
-    ERC721AQueryable,
-    ERC2981,
-    Ownable,
-    ReentrancyGuard
-{
+contract IrVins is ERC721AQueryable, ERC2981, Ownable, ReentrancyGuard {
     using Strings for uint256;
 
     bytes32 public merkleRoot;
@@ -26,9 +21,9 @@ contract TheNinjaKingdomOfficial is
     uint256 public cost;
     uint256 public maxSupply;
     uint256 public maxMintAmountPerTx;
-    uint256 public maxMintAmount = 500;
+    uint256 public maxMintAmount = 2;
 
-    bool public paused = false;
+    bool public paused = true;
     bool public whitelistMintEnabled = true;
     bool public revealed = false;
 
@@ -127,8 +122,8 @@ contract TheNinjaKingdomOfficial is
         _safeMint(_receiver, _mintAmount);
     }
 
-    function TreasuryMint(uint256) public onlyOwner {
-        _safeMint(_msgSender(), 500);
+    function TreasuryMint(uint256 _mintAmount) public onlyOwner {
+        _safeMint(_msgSender(), _mintAmount);
     }
 
     function _startTokenId() internal view virtual override returns (uint256) {

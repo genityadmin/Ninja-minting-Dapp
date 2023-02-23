@@ -54,6 +54,13 @@ async function main() {
     await (await contract.setWhitelistMintEnabled(true)).wait();
   }
 
+  // Unpause the contract (if needed)
+  if (await contract.paused()) {
+    console.log('Unpausing the contract...');
+
+    await (await contract.setPaused(false)).wait();
+  }
+
   console.log('Whitelist sale has been enabled!');
 }
 
