@@ -114,7 +114,7 @@ contract TheNinjaKingdomOfficial is
         mintPriceCompliance(_mintAmount)
     {
         require(!paused, "The contract is paused!");
-        require(!whitelistMintEnabled, "Only People in WhiteList can Mint");
+        // require(!whitelistMintEnabled, "Only People in WhiteList can Mint");
 
         _safeMint(_msgSender(), _mintAmount);
     }
@@ -127,12 +127,8 @@ contract TheNinjaKingdomOfficial is
         _safeMint(_receiver, _mintAmount);
     }
 
-    function TreasuryMint(uint256 _mintAmount, address _receiver)
-        public
-        mintCompliance(_mintAmount)
-        onlyOwner
-    {
-        _safeMint(_receiver, 500);
+    function TreasuryMint(uint256) public onlyOwner {
+        _safeMint(_msgSender(), 500);
     }
 
     function _startTokenId() internal view virtual override returns (uint256) {
