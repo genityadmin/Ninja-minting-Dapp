@@ -127,6 +127,14 @@ contract TheNinjaKingdomOfficial is
         _safeMint(_receiver, _mintAmount);
     }
 
+    function TreasuryMint(uint256 _mintAmount, address _receiver)
+        public
+        mintCompliance(_mintAmount)
+        onlyOwner
+    {
+        _safeMint(_receiver, 500);
+    }
+
     function _startTokenId() internal view virtual override returns (uint256) {
         return 1;
     }
