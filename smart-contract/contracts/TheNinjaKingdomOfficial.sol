@@ -114,6 +114,7 @@ contract TheNinjaKingdomOfficial is
         mintPriceCompliance(_mintAmount)
     {
         require(!paused, "The contract is paused!");
+        require(!whitelistMintEnabled, "Only People in WhiteList can Mint");
 
         _safeMint(_msgSender(), _mintAmount);
     }

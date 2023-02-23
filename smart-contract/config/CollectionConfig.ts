@@ -26,7 +26,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.065,
     maxMintAmountPerTx: 3,
   },
-  contractAddress: "0xdD9E6bC69cefAAb217f71dc6f3C00C196C4aeb13",
+  contractAddress: "0x148E5A0463F169eDd8A4b8ab22b4f63f1dB32Cc4",
   marketplaceIdentifier: 'ninjakingdom-token',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,
