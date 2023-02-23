@@ -59,11 +59,11 @@ export default class MintWidget extends React.Component<Props, State> {
   }
 
   private async mint(): Promise<void> {
-    // if (!this.props.isPaused) {
-    //   await this.props.mintTokens(this.state.mintAmount);
+    if (!this.props.isPaused) {
+      await this.props.mintTokens(this.state.mintAmount);
 
-    //   return;
-    // }
+      return;
+    }
 
     await this.props.whitelistMintTokens(this.state.mintAmount);
   }
