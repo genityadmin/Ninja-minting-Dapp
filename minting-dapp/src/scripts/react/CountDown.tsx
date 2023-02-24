@@ -12,21 +12,25 @@ const CountDown = () => {
       const now = new Date();
       const difference = target.getTime() - now.getTime();
 
-      const h = Math.floor(
-        (difference % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
-      );
-      setHours(h);
+      if (difference <= 0) {
+        clearInterval(interval);
+        setHours(0);
+        setMinutes(0);
+        setSeconds(0);
+      } else {
+        const h = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        setHours(h);
 
-      const m = Math.floor(
-        (difference % (1000 * 60 * 60) / (1000 * 60))
-      );
-      setMinutes(m);
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        setMinutes(m);
 
-      const s = Math.floor(
-        (difference % (1000 * 60) / 1000)
-      );
-      setSeconds(s);
-    }, 1000)
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+        setSeconds(s);
+      }
+    }, 1000);
+
 
     return () => clearInterval(interval)
   }, [])
