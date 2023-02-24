@@ -143,6 +143,7 @@ body {
   color: white;
   font-size: 55px;
   font-family: 'Racing Sans One';
+  line-height: 50px
 }
 
 .connect-wallet {
@@ -186,8 +187,8 @@ body {
 
 .wallet-address {
   position: absolute;
-  top: 3.5%;
-  right: 5%;
+  top: 4%;
+  right: 3%;
   border-radius: 50px;
   border-width: 2px;
   border-style: solid;
@@ -197,7 +198,7 @@ body {
   font-size: 18px;
   margin: auto;
   padding: 5px;
-  width: 130px;
+  width: 115px;
   height: 20px;
 }
 
@@ -451,7 +452,7 @@ button.selected {
 
 .txn-success {
   position: absolute;
-  top: 35%;
+  top: 24%;
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
@@ -463,13 +464,13 @@ button.selected {
 
 .congratz-msg {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
   font-family: 'Racing Sans One';
   color: white;
-  font-size: 55px;
+  font-size: 50px;
   text-align: center;
   line-height: 50px
 }
