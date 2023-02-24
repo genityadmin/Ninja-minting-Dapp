@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+import { useAudio } from 'react-use';
 
 const CountDown = () => {
   const [hours, setHours] = useState(0);
   const [minutues, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [countdownFinished, setCountdownFinished] = useState(false);
+
+  const [audio, state, controls, ref] = useAudio({
+    src: 'Midnight_Tokyo.wav'
+  });
 
   useEffect(() => {
     const target = new Date("25 February 2023 10:00 GMT+8");
@@ -57,6 +62,20 @@ const CountDown = () => {
           src="Temple.mp4"
           type="video/mp4" />
       </video>
+      <div>
+        {audio}
+        {!state.playing
+          ? <img onClick={controls.play}
+            className="play blink"
+            src="play.png"
+            onMouseOver={e => (e.currentTarget.src = "playRed.png")}
+            onMouseOut={e => (e.currentTarget.src = "play.png")} />
+          : <img onClick={controls.pause}
+            className="pause"
+            src="pause.png"
+            onMouseOver={e => (e.currentTarget.src = "pauseRed.png")}
+            onMouseOut={e => (e.currentTarget.src = "pause.png")} />}
+      </div>
       <a href='https://theninjakingdom.com' target="_blank" rel="noopener" >
         <img className='logo' src='logo.png'></img>
       </a>
