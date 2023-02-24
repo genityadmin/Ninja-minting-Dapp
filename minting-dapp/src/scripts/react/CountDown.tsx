@@ -4,6 +4,7 @@ const CountDown = () => {
   const [hours, setHours] = useState(0);
   const [minutues, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [countdownFinished, setCountdownFinished] = useState(false);
 
   useEffect(() => {
     const target = new Date("25 February 2023 10:00 GMT+8");
@@ -13,6 +14,7 @@ const CountDown = () => {
       const difference = target.getTime() - now.getTime();
 
       if (difference <= 0) {
+        setCountdownFinished(true);
         clearInterval(interval);
         setHours(0);
         setMinutes(0);
@@ -34,6 +36,12 @@ const CountDown = () => {
 
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    if (countdownFinished) {
+      alert("Please refresh the minting site");
+    }
+  }, [countdownFinished]);
 
   return (
     <div className='bgContainer'>
