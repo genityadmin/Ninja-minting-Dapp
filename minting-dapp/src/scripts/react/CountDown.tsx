@@ -44,7 +44,7 @@ const CountDown = () => {
 
   useEffect(() => {
     if (countdownFinished) {
-      alert("Please refresh the minting site");
+      alert("Please refresh the minting page");
     }
   }, [countdownFinished]);
 

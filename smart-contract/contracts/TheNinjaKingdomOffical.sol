@@ -8,7 +8,12 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/common/ERC2981.sol";
 
-contract IrVins is ERC721AQueryable, ERC2981, Ownable, ReentrancyGuard {
+contract TheNinjaKingdomOffical is
+    ERC721AQueryable,
+    ERC2981,
+    Ownable,
+    ReentrancyGuard
+{
     using Strings for uint256;
 
     bytes32 public merkleRoot;
@@ -109,7 +114,7 @@ contract IrVins is ERC721AQueryable, ERC2981, Ownable, ReentrancyGuard {
         mintPriceCompliance(_mintAmount)
     {
         require(!paused, "The contract is paused!");
-        // require(!whitelistMintEnabled, "Only People in WhiteList can Mint");
+        require(!whitelistMintEnabled, "Only People in WhiteList can Mint!");
 
         _safeMint(_msgSender(), _mintAmount);
     }

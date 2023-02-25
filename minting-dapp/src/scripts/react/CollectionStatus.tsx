@@ -46,7 +46,7 @@ export default class CollectionStatus extends React.Component<Props, State> {
                 {this.props.errorMessage ?
                   <>
                     <div className="error-message">
-                      <p>{this.props.errorMessage?.toString().slice(0, 25)}... (Please check MetaMask for the full error)</p></div>
+                      <p>{this.props.errorMessage?.toString().slice(0, 45)}... (Please check MetaMask for the full error)</p></div>
                   </>
                   :
                   null
