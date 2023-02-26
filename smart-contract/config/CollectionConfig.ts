@@ -13,7 +13,7 @@ const CollectionConfig: CollectionConfigInterface = {
   tokenName: 'The Ninja Kingdom Offical',
   tokenSymbol: 'TNJK',
   hiddenMetadataUri: 'ipfs://Qmd3fAtcCL4cMMz4c9UVHm9gBEzU2ZhLLpgxaUtqXYpvPV/hidden.json',
-  maxSupply: 6000,
+  maxSupply: 2500,
   whitelistSale: {
     price: 0.055,
     maxMintAmountPerTx: 2,

@@ -18,7 +18,7 @@ const switcher = () => {
 
   return (
     <>
-      {countdownFinished ? <CountDown /> : <Dapp />}
+      <Dapp />
 
     </>
   )

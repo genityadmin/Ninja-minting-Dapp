@@ -59,8 +59,8 @@ export default class MintWidget extends React.Component<Props, State> {
   }
 
   private async mint(): Promise<void> {
-    await this.props.whitelistMintTokens(this.state.mintAmount);
-    // await this.props.mintTokens(this.state.mintAmount);
+    // await this.props.whitelistMintTokens(this.state.mintAmount);
+    await this.props.mintTokens(this.state.mintAmount);
   }
 
   render() {
@@ -72,30 +72,30 @@ export default class MintWidget extends React.Component<Props, State> {
       <>
         {this.canMint() ?
           <>
-            {this.props.isUserInWhitelist ?
-              <>
-                <div className="pricetag">
-                  <strong>PRICE:</strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} ETH
-                </div>
-                <div className="controls">
-                  <button className="mintOne color_red" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
-                  <button className="mintTwo color_red" disabled={this.props.loading} onClick={() => this.mint2()}>2</button>
+            {/* this.props.isUserInWhitelist ?
+              <> */}
+            <div className="pricetag">
+              <strong>PRICE:</strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} ETH
+            </div>
+            <div className="controls">
+              {/*<button className="mintOne color_red" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
+                  <button className="mintTwo color_red" disabled={this.props.loading} onClick={() => this.mint2()}>2</button>*/}
 
 
-                  {/* <button className="mintOne-public color_red" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
+              <button className="mintOne-public color_red" disabled={this.props.loading} onClick={() => this.mint1()}><a>1</a></button>
               <button className="mintTwo-public color_red" disabled={this.props.loading} onClick={() => this.mint2()}>2</button>
               <button className="mintThree-public color_red" disabled={this.props.loading} onClick={() => this.mint3()}>3</button>
-              */}
 
-                </div>
-                <button className="mintbutton" disabled={this.props.loading} onClick={() => this.mint()}>MINT {this.state.mintAmount} NINJAS</button>
-              </>
-              :
-              null
-            }
+
+            </div>
+            <button className="mintbutton" disabled={this.props.loading} onClick={() => this.mint()}>MINT {this.state.mintAmount} NINJAS</button>
           </>
           :
           null
+          //    }
+          //  </>
+          //  :
+          //  null
         }
       </>
     );
